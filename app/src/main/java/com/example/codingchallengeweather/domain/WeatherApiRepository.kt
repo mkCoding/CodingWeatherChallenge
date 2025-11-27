@@ -7,6 +7,6 @@ class WeatherApiRepository {
     val api = WeatherModule.api
 
     // suspend function get Weather details
-    suspend fun getWeatherDetails() = api.getDetails()
+    suspend fun getWeatherReportDetails() = api.getWeatherReportDetails()
 
 }

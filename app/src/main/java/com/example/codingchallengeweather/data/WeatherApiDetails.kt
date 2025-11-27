@@ -1,9 +1,11 @@
 package com.example.codingchallengeweather.data
 
 object WeatherApiDetails {
-    // GET https://api.example.com/weather?city=Atlanta
 
-    const val BASE_URL = "https://api.example.com/weather/" // dummy endpoint
-    const val ENDPOINT_WEATHER_DETAILS = "api/details"
+// https://my-json-server.typicode.com/mkCoding/WeatherJson/weather
+
+    const val BASE_URL = "https://my-json-server.typicode.com/mkCoding/"
+    const val ENDPOINT_WEATHER_DETAILS = "WeatherJson/weather"
+
 
 }

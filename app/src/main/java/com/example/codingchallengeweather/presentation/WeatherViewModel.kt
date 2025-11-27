@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.codingchallengeweather.data.model.WeatherModel
+import com.example.codingchallengeweather.data.model.WeatherReportItemModel
 import com.example.codingchallengeweather.domain.WeatherApiRepository
 import kotlinx.coroutines.launch
 
@@ -19,11 +19,13 @@ class WeatherViewModel(): ViewModel(){
     init { loadWeatherData() }
 
     fun loadWeatherData(){
+
         _weatherData.value = WeatherState.Loading
+
         viewModelScope.launch{
             try {
-//                val data = repository.getWeatherDetails()
-                val data = WeatherModel(city = "Atlanta", condition = "windy", temperature = 60)
+                val data = repository.getWeatherReportDetails()
+               // val data = WeatherModel(city = "Atlanta", condition = "windy", temperature = 60)
 
                 _weatherData.value = WeatherState.Success(weatherData = data)
 
@@ -34,11 +36,14 @@ class WeatherViewModel(): ViewModel(){
 
     }
 
+//    fun getFilteredList(){
+//        _wea
+//    }
 }
 
 sealed class WeatherState{
     object Loading: WeatherState()
-    data class Success(val weatherData: WeatherModel): WeatherState()
+    data class Success(val weatherData: List<WeatherReportItemModel>): WeatherState()
     data class Error(val message:String): WeatherState()
 
 }
