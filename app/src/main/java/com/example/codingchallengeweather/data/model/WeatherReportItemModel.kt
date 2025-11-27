@@ -4,5 +4,6 @@ data class WeatherReportItemModel(
     val city: String,
     val condition: String,
     val id: Int,
-    val temperature: Int
+    val temperature: Int,
+    val icon: String = ""   // ← emoji added
 )
